@@ -191,7 +191,7 @@ Example output:
 
 ---
 
-## 🤖 Automated Workflow
+## Automated Workflow
 
 On every merge to main:
 
@@ -230,7 +230,7 @@ GitHub Pages Refresh
 
 ---
 
-## 📊 Example Leaderboard
+## Example Leaderboard
 
 ```text
 🥇 Data Wizards    0.95
@@ -247,7 +247,7 @@ GitHub Pages Refresh
 
 ---
 
-## 📜 License
+## License
 
 MIT License
 
@@ -265,4 +265,4 @@ id,label
 5,spam
 ```
 
-Open a PR and get ranked 🚀
+Open a PR and get ranked!
