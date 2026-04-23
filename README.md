@@ -219,7 +219,7 @@ GitHub Pages Refresh
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 * Python
 * Pandas
