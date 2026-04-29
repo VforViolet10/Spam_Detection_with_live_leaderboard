@@ -6,5 +6,6 @@ rank,team,accuracy,precision,recall,f1
 5,aayushi,0.6,0.6,0.6,0.6
 6,omk,0.6,0.6,0.6,0.6
 7,zoya_submission,0.5,0.5,0.5,0.4949
-8,Sia_submission,0.3,0.325,0.3,0.3111
-9,nandini,0.3,0.2917,0.3,0.2929
+8,team_senerita,0.5,0.25,0.5,0.3333
+9,Sia_submission,0.3,0.325,0.3,0.3111
+10,nandini,0.3,0.2917,0.3,0.2929
