@@ -4,6 +4,7 @@ rank,team,accuracy,precision,recall,f1
 3,sample_spam_ham,0.6,0.6,0.6,0.6
 4,Submission_01,0.6,0.6,0.6,0.6
 5,aayushi,0.6,0.6,0.6,0.6
-6,zoya_submission,0.5,0.5,0.5,0.4949
-7,Sia_submission,0.3,0.325,0.3,0.3111
-8,nandini,0.3,0.2917,0.3,0.2929
+6,omk,0.6,0.6,0.6,0.6
+7,zoya_submission,0.5,0.5,0.5,0.4949
+8,Sia_submission,0.3,0.325,0.3,0.3111
+9,nandini,0.3,0.2917,0.3,0.2929
