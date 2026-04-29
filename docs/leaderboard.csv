@@ -9,3 +9,4 @@ rank,team,accuracy,precision,recall,f1
 8,team_senerita,0.5,0.25,0.5,0.3333
 9,Sia_submission,0.3,0.325,0.3,0.3111
 10,nandini,0.3,0.2917,0.3,0.2929
+11,Chaitanya_submission,0.3,0.2917,0.3,0.2929
