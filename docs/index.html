@@ -3,15 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <title>Spam Detection Leaderboard</title>
+
 <style>
 body{
-font-family:Arial;
+font-family:Arial, sans-serif;
 padding:40px;
-background:#f5f5f5;
+background:#f5f7fb;
 }
 
 h1{
 text-align:center;
+margin-bottom:10px;
+}
+
+.best-score{
+width:420px;
+margin:20px auto;
+background:white;
+padding:20px;
+text-align:center;
+border-radius:15px;
+box-shadow:0 4px 15px rgba(0,0,0,.1);
+font-size:22px;
+font-weight:bold;
+}
+
+.best-score span{
+color:#0a8f3d;
+font-size:30px;
 }
 
 table{
@@ -19,28 +38,56 @@ width:90%;
 margin:auto;
 border-collapse:collapse;
 background:white;
-box-shadow:0 2px 10px rgba(0,0,0,.1);
+box-shadow:0 2px 15px rgba(0,0,0,.1);
+border-radius:10px;
+overflow:hidden;
 }
 
 th,td{
-padding:15px;
+padding:16px;
 border:1px solid #ddd;
 text-align:center;
 }
 
 th{
-background:#222;
+background:#1f2937;
 color:white;
+font-size:17px;
 }
 
 tr:hover{
-background:#f2f2f2;
+background:#f8fafc;
 }
+
+.gold{
+background:#fff7cc;
+font-weight:bold;
+}
+
+.silver{
+background:#eef2f7;
+font-weight:bold;
+}
+
+.bronze{
+background:#fde6d0;
+font-weight:bold;
+}
+
+.rank-medal{
+font-size:24px;
+}
+
 </style>
 </head>
+
 <body>
 
 <h1>📊 Spam Detection Challenge Leaderboard</h1>
+
+<div class="best-score">
+🏆 Best F1 Score: <span id="bestF1">Loading...</span>
+</div>
 
 <table id="leaderboard">
 <thead>
@@ -50,34 +97,75 @@ background:#f2f2f2;
 <th>Accuracy</th>
 <th>Precision</th>
 <th>Recall</th>
-<th>F1</th>
+<th>F1 Score</th>
 </tr>
 </thead>
 <tbody></tbody>
 </table>
 
 <script>
+
 fetch('leaderboard.csv')
 .then(response=>response.text())
 .then(data=>{
 
-let rows=data.trim().split('\n').slice(1)
-let tbody=document.querySelector('tbody')
+let rows = data.trim().split('\n').slice(1)
+let tbody = document.querySelector('tbody')
 
-rows.forEach(r=>{
-let cols=r.split(',')
+let entries = rows.map(r=>{
+let c=r.split(',')
+return{
+team:c[1],
+accuracy:parseFloat(c[2]),
+precision:parseFloat(c[3]),
+recall:parseFloat(c[4]),
+f1:parseFloat(c[5])
+}
+})
+
+/* Sort by F1 descending */
+entries.sort((a,b)=>b.f1-a.f1)
+
+/* Show Best F1 */
+document.getElementById("bestF1").innerText=
+entries[0].f1.toFixed(4)
+
+/* Render table */
+entries.forEach((e,index)=>{
+
 let tr=document.createElement('tr')
 
-cols.forEach(c=>{
+if(index===0) tr.classList.add('gold')
+if(index===1) tr.classList.add('silver')
+if(index===2) tr.classList.add('bronze')
+
+let medal=""
+if(index===0) medal="🥇"
+else if(index===1) medal="🥈"
+else if(index===2) medal="🥉"
+else medal=index+1
+
+let row=[
+medal,
+e.team,
+e.accuracy.toFixed(4),
+e.precision.toFixed(4),
+e.recall.toFixed(4),
+e.f1.toFixed(4)
+]
+
+row.forEach(val=>{
 let td=document.createElement('td')
-td.textContent=c
+td.innerHTML=val
 tr.appendChild(td)
 })
 
 tbody.appendChild(tr)
 
 })
+
 })
+
 </script>
 
 </body>
