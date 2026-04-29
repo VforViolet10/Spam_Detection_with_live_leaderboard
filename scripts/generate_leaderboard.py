@@ -24,6 +24,7 @@ for file in files:
     y_pred=merged['label_y']
 
     acc=accuracy_score(y_true,y_pred)
+    precision_score(y_true, y_pred, average='macro')
     prec=precision_score(
         y_true,
         y_pred,
