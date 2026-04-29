@@ -24,22 +24,10 @@ for file in files:
     y_pred=merged['label_y']
 
     acc=accuracy_score(y_true,y_pred)
-    precision_score(y_true, y_pred, average='macro')
-    prec=precision_score(
-        y_true,
-        y_pred,
-        pos_label='spam'
-    )
-    rec=recall_score(
-        y_true,
-        y_pred,
-        pos_label='spam'
-    )
-    f1=f1_score(
-        y_true,
-        y_pred,
-        pos_label='spam'
-    )
+    prec=precision_score(y_true, y_pred, average='weighted')
+    rec=recall_score(y_true, y_pred, average='weighted')
+    f1=f1_score(y_true, y_pred, average='weighted')
+    
 
     rows.append({
         'team':team,
